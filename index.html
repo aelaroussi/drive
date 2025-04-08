@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>DRIVE - ABDELLATIF ELAROUSSI</title>
+		<link rel="icon" href="favicon.ico" type="image/x-icon" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="Drive by ABDELLATIF ELAROUSSI" />
+		<meta name="author" content="ABDELLATIF ELAROUSSI" />
+		<meta name="keywords" content="Drive, ABDELLATIF ELAROUSSI" />
+		<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<h1>📁 Public Drive</h1>
+		<ul id="fileList">
+			<span class="loading">Loading files...</span>
+		</ul>
+		<footer>
+			<p>
+				&copy; <span id="year"></span>
+				<a href="https://elaroussi.online" target="_blank">elaroussi.online</a>
+			</p>
+		</footer>
+		<script>
+			document.getElementById('year').textContent = new Date().getFullYear();
+		</script>
+		<script src="main.js"></script>
+	</body>
+</html>
