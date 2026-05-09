@@ -18,7 +18,7 @@ body {
   color: #fff;
   max-width: 1000px;
   margin: 0 auto;
-  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
 }
