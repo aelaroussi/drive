@@ -1,9 +1,11 @@
 const API_KEY = "AIzaSyAC-f-HXqzPUJMKhG-zg0nF4GRyNnneGVU";
 const FOLDER_ID = "19xOhe711glOh_3swG5v7VE_vWwxog66y";
 const mimeIcons = {
+  // Folders & Generic
   "application/vnd.google-apps.folder": "folder",
   default: "draft",
 
+  // Documents
   "application/pdf": "picture_as_pdf",
   "text/plain": "notes",
   "application/msword": "description",
@@ -15,7 +17,18 @@ const mimeIcons = {
   "application/vnd.ms-powerpoint": "presentation",
   "application/vnd.openxmlformats-officedocument.presentationml.presentation":
     "presentation",
+  "application/rtf": "description",
+  "application/vnd.oasis.opendocument.text": "description",
+  "application/vnd.oasis.opendocument.spreadsheet": "table_view",
+  "application/vnd.oasis.opendocument.presentation": "presentation",
 
+  // Data & Spreadsheets
+  "text/csv": "csv",
+  "text/tab-separated-values": "dataset",
+  "application/x-sqlite3": "database",
+  "application/sql": "database",
+
+  // Images
   "image/jpeg": "image",
   "image/png": "image",
   "image/gif": "gif",
@@ -31,6 +44,8 @@ const mimeIcons = {
   "image/vnd.microsoft.icon": "app_shortcut",
   "image/jp2": "image",
   "image/jxl": "image",
+
+  // RAW Images
   "image/x-adobe-dng": "camera",
   "image/x-canon-cr2": "camera",
   "image/x-nikon-nef": "camera",
@@ -42,46 +57,85 @@ const mimeIcons = {
   "image/vnd.dwg": "architecture",
   "image/xcf": "brush",
 
+  // Audio
   "audio/mpeg": "audio_file",
   "audio/mp3": "audio_file",
   "audio/wav": "audio_file",
   "audio/ogg": "audio_file",
   "audio/flac": "audio_file",
+  "audio/x-m4a": "audio_file",
+  "audio/aac": "audio_file",
   "audio/x-ms-wma": "audio_file",
+  "audio/midi": "piano",
 
+  // Video
   "video/mp4": "video_file",
   "video/x-msvideo": "video_file",
   "video/x-matroska": "video_file",
   "video/webm": "video_file",
   "video/quicktime": "video_file",
   "video/x-flv": "video_file",
+  "video/x-ms-wmv": "video_file",
+  "video/mpeg": "video_file",
 
+  // Archives
   "application/zip": "folder_zip",
   "application/x-rar-compressed": "folder_zip",
   "application/x-7z-compressed": "folder_zip",
   "application/x-tar": "folder_zip",
   "application/gzip": "folder_zip",
+  "application/x-bzip2": "folder_zip",
 
+  // Code & Web
   "text/html": "html",
   "application/json": "data_object",
   "application/javascript": "javascript",
+  "application/typescript": "code",
   "text/css": "css",
   "text/x-python": "terminal",
   "text/x-c": "terminal",
+  "text/x-c++src": "terminal",
+  "text/x-csharp": "terminal",
   "text/x-java-source": "terminal",
   "application/x-sh": "terminal",
   "text/markdown": "markdown",
+  "application/xml": "code",
+  "text/xml": "code",
+  "application/x-yaml": "data_object",
+  "application/x-httpd-php": "code",
 
+  // Executables & System
   "application/vnd.android.package-archive": "android",
   "application/x-msdownload": "system_update",
+  "application/x-apple-diskimage": "save",
   "application/x-diskcopy": "save",
+  "application/x-iso9660-image": "album",
 
-  "application/vnd.oasis.opendocument.text": "description",
-  "application/vnd.oasis.opendocument.spreadsheet": "table_view",
-  "application/vnd.oasis.opendocument.presentation": "presentation",
-
+  // Design & 3D
   "application/vnd.adobe.photoshop": "brush",
+  "application/vnd.adobe.illustrator": "draw",
   "application/x-coreldraw": "draw",
+  "image/vnd.dwg": "architecture",
+  "image/vnd.dxf": "architecture",
+  "model/gltf-binary": "view_in_ar",
+  "model/gltf+json": "view_in_ar",
+  "model/stl": "3d_rotation",
+  "model/obj": "3d_rotation",
+
+  // E-books
+  "application/epub+zip": "menu_book",
+  "application/x-mobipocket-ebook": "menu_book",
+  "application/vnd.amazon.ebook": "menu_book",
+
+  // Fonts
+  "font/ttf": "text_fields",
+  "font/otf": "text_fields",
+  "font/woff": "text_fields",
+  "font/woff2": "text_fields",
+
+  // Misc
+  "text/calendar": "calendar_month",
+  "text/vcard": "contacts",
 };
 
 function formatBytes(bytes) {
