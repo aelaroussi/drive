@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap");
+
 *,
 *::before,
 *::after {
@@ -8,13 +10,13 @@
 }
 
 body {
-  font-family: "Roboto", Arial, sans-serif;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
   padding: 1em;
   background: #1b1b1b;
   max-width: 1000px;
   margin: 0 auto;
 }
-
 h1 {
   color: #fff;
   margin-bottom: 1em;
