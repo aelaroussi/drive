@@ -22,7 +22,25 @@ const mimeIcons = {
   "image/bmp": "image",
   "image/webp": "image",
   "image/svg+xml": "polyline",
-  "image/tiff": "image",
+  "image/tiff": "photo_library",
+  "image/heic": "photo",
+  "image/heif": "photo",
+  "image/avif": "image",
+  "image/apng": "animation",
+  "image/x-icon": "app_shortcut",
+  "image/vnd.microsoft.icon": "app_shortcut",
+  "image/jp2": "image",
+  "image/jxl": "image",
+  "image/x-adobe-dng": "camera",
+  "image/x-canon-cr2": "camera",
+  "image/x-nikon-nef": "camera",
+  "image/x-sony-arw": "camera",
+  "image/x-fuji-raf": "camera",
+  "image/x-panasonic-rw2": "camera",
+  "image/x-olympus-orf": "camera",
+  "image/raw": "camera",
+  "image/vnd.dwg": "architecture",
+  "image/xcf": "brush",
 
   "audio/mpeg": "audio_file",
   "audio/mp3": "audio_file",
@@ -64,8 +82,6 @@ const mimeIcons = {
 
   "application/vnd.adobe.photoshop": "brush",
   "application/x-coreldraw": "draw",
-  "image/x-adobe-dng": "camera",
-  "image/vnd.dwg": "architecture",
 };
 
 function formatBytes(bytes) {
