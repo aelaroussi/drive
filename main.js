@@ -146,21 +146,26 @@ function formatBytes(bytes) {
 }
 
 async function listFiles() {
-  const url = `https://www.googleapis.com/drive/v3/files?q='${FOLDER_ID}'+in+parents&key=${API_KEY}&fields=files(id,name,mimeType,size)`;
+  const query = encodeURIComponent(`'${FOLDER_ID}' in parents`);
+  const url = `https://www.googleapis.com/drive/v3/files?q=${query}&key=${API_KEY}&fields=files(id,name,mimeType,size)`;
 
   try {
     const res = await fetch(url);
     const data = await res.json();
 
     const fileList = document.getElementById("fileList");
-    fileList.innerHTML = "";
+    fileList.textContent = "";
 
     if (!data.files || data.files.length === 0) {
-      fileList.innerHTML = "<li>No files found.</li>";
+      const li = document.createElement("li");
+      li.textContent = "No files found.";
+      fileList.appendChild(li);
       return;
     }
 
     data.files.sort((a, b) => a.name.localeCompare(b.name));
+
+    const fragment = document.createDocumentFragment();
 
     data.files.forEach((file) => {
       const li = document.createElement("li");
@@ -169,16 +174,31 @@ async function listFiles() {
       const iconName = mimeIcons[file.mimeType] || mimeIcons["default"];
       const fileSize = formatBytes(file.size);
 
-      link.innerHTML = `<span class="material-symbols-outlined">${iconName}</span> <span>${file.name}</span>`;
-      link.href = `https://drive.google.com/uc?export=download&id=${file.id}`;
+      const iconSpan = document.createElement("span");
+      iconSpan.className = "material-symbols-outlined";
+      iconSpan.textContent = iconName;
+
+      const nameSpan = document.createElement("span");
+      nameSpan.textContent = file.name;
+
+      link.appendChild(iconSpan);
+      link.appendChild(nameSpan);
+
+      link.href = `https://drive.google.com/uc?export=download&id=${encodeURIComponent(file.id)}`;
       link.target = "_blank";
       link.title = `${file.name} (${fileSize})`;
+
       li.appendChild(link);
-      fileList.appendChild(li);
+      fragment.appendChild(li);
     });
+
+    fileList.appendChild(fragment);
   } catch (error) {
-    document.getElementById("fileList").innerHTML =
-      `<li>Error loading files: ${error.message}</li>`;
+    const fileList = document.getElementById("fileList");
+    fileList.textContent = "";
+    const li = document.createElement("li");
+    li.textContent = `Error loading files: ${error.message}`;
+    fileList.appendChild(li);
   }
 }
 
